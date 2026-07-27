@@ -1,0 +1,280 @@
+/* =========================
+   SEZA MOTORS WEBSITE STYLE
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #050505;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+
+/* Navigation */
+
+header {
+    background: #000000;
+    border-bottom: 1px solid #b8862c;
+    padding: 20px 8%;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    color: #d4af37;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+
+nav ul li a:hover {
+    color: #d4af37;
+}
+
+
+/* Hero Section */
+
+.hero {
+
+    min-height: 85vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 8%;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.75)
+    ),
+    url("../images/muscle-car.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+.hero-content {
+
+    max-width: 650px;
+
+}
+
+
+.hero h1 {
+
+    color: #d4af37;
+
+    font-size: 55px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+
+}
+
+
+.hero p {
+
+    font-size: 22px;
+
+    margin-bottom: 35px;
+
+    color: #ffffff;
+
+}
+
+
+/* Buttons */
+
+.button {
+
+    display: inline-block;
+
+    background: #d4af37;
+
+    color: black;
+
+    padding: 15px 35px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 3px;
+
+    transition: .3s;
+
+}
+
+
+.button:hover {
+
+    background: white;
+
+}
+
+
+/* About Section */
+
+.about-preview {
+
+    padding: 80px 8%;
+
+    text-align: center;
+
+}
+
+
+.about-preview h2 {
+
+    color:#d4af37;
+
+    font-size: 36px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.about-preview p {
+
+    max-width:800px;
+
+    margin:auto;
+
+    color:#cccccc;
+
+}
+
+
+/* Feature Cards */
+
+
+.features {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin-top:50px;
+
+}
+
+
+.features div {
+
+    background:#111111;
+
+    border:1px solid #333;
+
+    padding:30px;
+
+    width:300px;
+
+}
+
+
+.features h3 {
+
+    color:#d4af37;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* Footer */
+
+
+footer {
+
+    background:#000;
+
+    text-align:center;
+
+    padding:25px;
+
+    border-top:1px solid #333;
+
+    color:#999;
+
+}
+
+
+
+/* Mobile Design */
+
+
+@media(max-width:768px){
+
+
+nav {
+
+    flex-direction:column;
+
+}
+
+
+nav ul {
+
+    margin-top:20px;
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+
+.hero h1 {
+
+    font-size:38px;
+
+}
+
+
+.features {
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+}
