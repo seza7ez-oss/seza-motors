@@ -1,6 +1,19 @@
-/* =========================
-   SEZA MOTORS WEBSITE STYLE
-   ========================= */
+/* ==================================================
+   SEZA MOTORS — SHARED WEBSITE STYLES
+   ================================================== */
+
+:root {
+    --black: #050505;
+    --black-soft: #0d0d0d;
+    --panel: #141414;
+    --panel-light: #1a1a1a;
+    --gold: #d4af37;
+    --gold-dark: #aa8427;
+    --white: #f7f7f7;
+    --gray: #b8b8b8;
+    --border: rgba(212, 175, 55, 0.28);
+    --max-width: 1200px;
+}
 
 * {
     margin: 0;
@@ -8,273 +21,1438 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #050505;
-    color: #ffffff;
+    min-height: 100vh;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    background: var(--black);
+    color: var(--white);
     line-height: 1.6;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
 
-/* Navigation */
+a {
+    color: inherit;
+}
 
+/* ==================================================
+   NAVIGATION
+   ================================================== */
+
+.site-header,
 header {
-    background: #000000;
-    border-bottom: 1px solid #b8862c;
-    padding: 20px 8%;
+    position: relative;
+    z-index: 100;
+    background: rgba(5, 5, 5, 0.98);
+    border-bottom: 1px solid var(--border);
 }
 
-
+.site-nav,
 nav {
+    width: min(100% - 40px, var(--max-width));
+    min-height: 88px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-
-.logo {
-    color: #d4af37;
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
-
-
-nav ul {
-    list-style: none;
-    display: flex;
+    justify-content: space-between;
     gap: 30px;
 }
 
-
-nav ul li a {
-    color: white;
+.logo,
+.logo a {
+    color: var(--gold);
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
     text-decoration: none;
-    font-size: 16px;
-    transition: 0.3s;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
-
-
-nav ul li a:hover {
-    color: #d4af37;
-}
-
-
-/* Hero Section */
-
-.hero {
-
-    min-height: 85vh;
-
-    display: flex;
-    align-items: center;
-
-    padding: 0 8%;
-
-    background:
-    linear-gradient(
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.75)
-    ),
-    url("../images/hero/muscle-car.jpg");
-
-    background-size: cover;
-    background-position: center;
-
-}
-
-
-.hero-content {
-
-    max-width: 650px;
-
-}
-
-
-.hero h1 {
-
-    color: #d4af37;
-
-    font-size: 55px;
-
-    line-height: 1.2;
-
-    margin-bottom: 20px;
-
-}
-
-
-.hero p {
-
-    font-size: 22px;
-
-    margin-bottom: 35px;
-
-    color: #ffffff;
-
-}
-
-
-/* Buttons */
-
-.button {
-
-    display: inline-block;
-
-    background: #d4af37;
-
-    color: black;
-
-    padding: 15px 35px;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    border-radius: 3px;
-
-    transition: .3s;
-
-}
-
-
-.button:hover {
-
-    background: white;
-
-}
-
-
-/* About Section */
-
-.about-preview {
-
-    padding: 80px 8%;
-
-    text-align: center;
-
-}
-
-
-.about-preview h2 {
-
-    color:#d4af37;
-
-    font-size: 36px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.about-preview p {
-
-    max-width:800px;
-
-    margin:auto;
-
-    color:#cccccc;
-
-}
-
-
-/* Feature Cards */
-
-
-.features {
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:30px;
-
-    margin-top:50px;
-
-}
-
-
-.features div {
-
-    background:#111111;
-
-    border:1px solid #333;
-
-    padding:30px;
-
-    width:300px;
-
-}
-
-
-.features h3 {
-
-    color:#d4af37;
-
-    margin-bottom:15px;
-
-}
-
-
-
-/* Footer */
-
-
-footer {
-
-    background:#000;
-
-    text-align:center;
-
-    padding:25px;
-
-    border-top:1px solid #333;
-
-    color:#999;
-
-}
-
-
-
-/* Mobile Design */
-
-
-@media(max-width:768px){
-
-
-nav {
-
-    flex-direction:column;
-
-}
-
 
 nav ul {
-
-    margin-top:20px;
-
-    flex-direction:column;
-
-    text-align:center;
-
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
 }
 
+nav ul a {
+    position: relative;
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+nav ul a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.25s ease;
+}
+
+nav ul a:hover,
+nav ul a.active {
+    color: var(--gold);
+}
+
+nav ul a:hover::after,
+nav ul a.active::after {
+    width: 100%;
+}
+
+/* ==================================================
+   REUSABLE ELEMENTS
+   ================================================== */
+
+.page-shell {
+    width: min(100% - 40px, var(--max-width));
+    margin: 0 auto;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.section-title {
+    color: var(--gold);
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.gold-btn,
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 13px 26px;
+    border: 1px solid var(--gold);
+    border-radius: 3px;
+    background: var(--gold);
+    color: #050505;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.gold-btn:hover,
+.button:hover {
+    background: transparent;
+    color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.gold-btn.outline {
+    background: transparent;
+    color: var(--gold);
+}
+
+.gold-btn.outline:hover {
+    background: var(--gold);
+    color: #050505;
+}
+
+/* ==================================================
+   EXISTING HOME PAGE
+   ================================================== */
+
+.hero {
+    min-height: 82vh;
+    display: flex;
+    align-items: center;
+    padding: 80px max(20px, calc((100% - var(--max-width)) / 2));
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.93), rgba(0, 0, 0, 0.48)),
+        url("../images/hero/muscle-car.jpg") center / cover no-repeat;
+}
+
+.hero-content {
+    max-width: 700px;
+}
 
 .hero h1 {
-
-    font-size:38px;
-
+    margin-bottom: 22px;
+    color: var(--gold);
+    font-size: clamp(2.8rem, 7vw, 5.8rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
 }
 
+.hero p {
+    max-width: 650px;
+    margin-bottom: 34px;
+    color: var(--white);
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+.about-preview {
+    padding: 90px 20px;
+    text-align: center;
+}
+
+.about-preview h2 {
+    margin-bottom: 20px;
+    color: var(--gold);
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.about-preview > p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--gray);
+}
 
 .features {
-
-    flex-direction:column;
-
-    align-items:center;
-
+    width: min(100%, 1000px);
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
 }
 
+.features > div {
+    padding: 32px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+}
 
+.features h3 {
+    margin-bottom: 12px;
+    color: var(--gold);
+}
+
+/* ==================================================
+   CONTACT PAGE
+   ================================================== */
+
+.contact-hero {
+    padding: 90px 0 60px;
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(212, 175, 55, 0.12),
+            transparent 35%
+        ),
+        var(--black);
+}
+
+.contact-heading {
+    max-width: 760px;
+}
+
+.contact-heading p {
+    max-width: 680px;
+    margin-top: 20px;
+    color: var(--gray);
+    font-size: 1.05rem;
+}
+
+.contact-main {
+    padding: 20px 0 90px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+    gap: 64px;
+    align-items: stretch;
+}
+
+.contact-information {
+    padding: 40px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+}
+
+.contact-item {
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.contact-item:first-child {
+    padding-top: 0;
+}
+
+.contact-item:last-of-type {
+    border-bottom: 0;
+}
+
+.contact-label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--gold);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.contact-item a,
+.contact-item p {
+    color: var(--white);
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: var(--gold);
+}
+
+.hours-list {
+    margin-top: 8px;
+}
+
+.hours-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 5px 0;
+    color: var(--gray);
+}
+
+.hours-row.open {
+    color: var(--white);
+}
+
+.contact-note {
+    margin-top: 15px;
+    color: var(--gray);
+    font-size: 0.88rem;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.contact-visual {
+    min-height: 640px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.82)
+        ),
+        url("../images/contact/contact-car.jpg") center / cover no-repeat,
+        linear-gradient(135deg, #242424, #080808);
+}
+
+.contact-visual-copy {
+    position: absolute;
+    left: 35px;
+    right: 35px;
+    bottom: 35px;
+}
+
+.contact-visual-copy h2 {
+    margin-bottom: 8px;
+    color: var(--gold);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.05;
+}
+
+.contact-visual-copy p {
+    max-width: 540px;
+    color: var(--white);
+}
+
+.contact-benefits {
+    padding: 90px 0;
+    background: var(--black-soft);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.contact-benefits-header {
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.contact-benefits-header h2 {
+    color: var(--gold);
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.benefit-card {
+    padding: 32px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.benefit-number {
+    margin-bottom: 20px;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+.benefit-card h3 {
+    margin-bottom: 12px;
+    color: var(--white);
+}
+
+.benefit-card p {
+    color: var(--gray);
+}
+
+.map-section {
+    padding: 90px 0;
+}
+
+.map-placeholder {
+    min-height: 330px;
+    display: grid;
+    place-items: center;
+    padding: 30px;
+    text-align: center;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.8)
+        ),
+        repeating-linear-gradient(
+            45deg,
+            #151515,
+            #151515 12px,
+            #101010 12px,
+            #101010 24px
+        );
+    border: 1px solid var(--border);
+}
+
+.map-placeholder h2 {
+    margin-bottom: 12px;
+    color: var(--gold);
+}
+
+.map-placeholder p {
+    margin-bottom: 22px;
+    color: var(--gray);
+}
+
+/* ==================================================
+   FOOTER
+   ================================================== */
+
+.site-footer,
+footer {
+    padding: 55px 20px 28px;
+    background: #000;
+    border-top: 1px solid var(--border);
+    color: var(--gray);
+    text-align: center;
+}
+
+.footer-brand {
+    margin-bottom: 8px;
+    color: var(--gold);
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+.footer-tagline {
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.footer-links a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    font-size: 0.82rem;
+}
+
+/* ==================================================
+   RESPONSIVE DESIGN
+   ================================================== */
+
+@media (max-width: 900px) {
+    .site-nav,
+    nav {
+        padding: 20px 0;
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px 24px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-visual {
+        min-height: 480px;
+    }
+
+    .features,
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-nav,
+    nav,
+    .page-shell {
+        width: min(100% - 28px, var(--max-width));
+    }
+
+    .logo,
+    .logo a {
+        font-size: 1.25rem;
+    }
+
+    nav ul {
+        gap: 14px 18px;
+    }
+
+    nav ul a {
+        font-size: 0.78rem;
+    }
+
+    .contact-hero {
+        padding-top: 65px;
+    }
+
+    .contact-information {
+        padding: 26px 22px;
+    }
+
+    .hours-row {
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+    }
+
+    .contact-actions {
+        flex-direction: column;
+    }
+
+    .gold-btn,
+    .button {
+        width: 100%;
+    }
+
+    .contact-visual {
+        min-height: 390px;
+    }
+
+    .contact-visual-copy {
+        left: 24px;
+        right: 24px;
+        bottom: 24px;
+    }
+
+    .benefit-card {
+        padding: 26px 22px;
+    }
+}
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+/* ==================================================
+   ABOUT PAGE
+   ================================================== */
+
+.about-hero {
+    padding: 110px 0 95px;
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(212, 175, 55, 0.14),
+            transparent 35%
+        ),
+        linear-gradient(135deg, #0d0d0d, #050505);
+}
+
+.about-hero-content {
+    max-width: 900px;
+}
+
+.about-hero-text {
+    max-width: 720px;
+    margin: 24px 0 32px;
+    color: var(--gray);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.about-story {
+    padding: 95px 0;
+}
+
+.about-story-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    gap: 60px;
+    align-items: start;
+}
+
+.about-story-copy h2,
+.about-values-heading h2,
+.about-audience h2,
+.about-cta h2 {
+    margin-bottom: 24px;
+    color: var(--gold);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+}
+
+.about-story-copy p {
+    margin-bottom: 18px;
+    color: var(--gray);
+}
+
+.about-story-card {
+    padding: 38px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+}
+
+.about-story-card h3 {
+    margin-bottom: 18px;
+    color: var(--white);
+    font-size: 1.6rem;
+}
+
+.about-story-card p {
+    margin-bottom: 16px;
+    color: var(--gray);
+}
+
+.about-values {
+    padding: 95px 0;
+    background: var(--black-soft);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.about-values-heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.about-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.about-value-card {
+    padding: 34px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.about-value-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.about-value-card h3 {
+    margin-bottom: 12px;
+    color: var(--white);
+}
+
+.about-value-card p {
+    color: var(--gray);
+}
+
+.about-audience {
+    padding: 95px 0;
+}
+
+.about-audience-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 65px;
+}
+
+.about-audience-list {
+    display: grid;
+    gap: 18px;
+}
+
+.about-audience-list > div {
+    padding: 24px 26px;
+    background: var(--panel);
+    border-left: 3px solid var(--gold);
+}
+
+.about-audience-list h3 {
+    margin-bottom: 6px;
+    color: var(--white);
+}
+
+.about-audience-list p {
+    color: var(--gray);
+}
+
+.about-cta {
+    padding: 100px 0;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.88),
+            rgba(0, 0, 0, 0.88)
+        ),
+        url("../images/hero/muscle-car.jpg") center / cover no-repeat;
+    text-align: center;
+}
+
+.about-cta-content {
+    max-width: 800px;
+}
+
+.about-cta p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: var(--gray);
+}
+
+.about-cta .hero-buttons {
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .about-story-grid,
+    .about-audience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-hero,
+    .about-story,
+    .about-values,
+    .about-audience,
+    .about-cta {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .about-story-card,
+    .about-value-card {
+        padding: 26px 22px;
+    }
+}
+/* ==================================================
+   TEAM PAGE
+   ================================================== */
+
+.team-hero {
+    padding: 110px 0 90px;
+    background:
+        radial-gradient(
+            circle at 80% 25%,
+            rgba(212, 175, 55, 0.14),
+            transparent 35%
+        ),
+        linear-gradient(135deg, #0d0d0d, #050505);
+}
+
+.team-hero-content {
+    max-width: 900px;
+}
+
+.team-hero-text {
+    max-width: 720px;
+    margin-top: 24px;
+    color: var(--gray);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.team-profile-section {
+    padding: 100px 0;
+}
+
+.team-profile-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
+    gap: 65px;
+    align-items: center;
+}
+
+.team-photo {
+    position: relative;
+    min-height: 560px;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, #1a1a1a, #080808);
+    border: 1px solid var(--border);
+}
+
+.team-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    pointer-events: none;
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.team-profile-copy h2,
+.team-mission h2,
+.team-values-heading h2,
+.team-story h2,
+.team-cta h2 {
+    margin-bottom: 22px;
+    color: var(--gold);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+}
+
+.team-role {
+    margin-bottom: 24px;
+    color: var(--white);
+    font-weight: 700;
+}
+
+.team-profile-copy > p:not(.eyebrow):not(.team-role) {
+    margin-bottom: 17px;
+    color: var(--gray);
+}
+
+.team-profile-copy .hero-buttons {
+    margin-top: 30px;
+}
+
+.team-mission {
+    padding: 90px 0;
+    background: var(--black-soft);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.team-mission-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 65px;
+}
+
+.team-mission-copy p {
+    margin-bottom: 18px;
+    color: var(--gray);
+}
+
+.team-values {
+    padding: 95px 0;
+}
+
+.team-values-heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.team-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.team-value-card {
+    padding: 34px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.team-value-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.team-value-card h3 {
+    margin-bottom: 12px;
+    color: var(--white);
+}
+
+.team-value-card p {
+    color: var(--gray);
+}
+
+.team-story {
+    padding: 100px 0;
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(212, 175, 55, 0.1),
+            transparent 35%
+        ),
+        var(--black-soft);
+}
+
+.team-story-content {
+    max-width: 850px;
+}
+
+.team-story-content p:not(.eyebrow) {
+    margin-bottom: 18px;
+    color: var(--gray);
+}
+
+.team-cta {
+    padding: 100px 0;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.88),
+            rgba(0, 0, 0, 0.88)
+        ),
+        url("../images/hero/muscle-car.jpg") center / cover no-repeat;
+    text-align: center;
+}
+
+.team-cta-content {
+    max-width: 800px;
+}
+
+.team-cta-content > p:not(.eyebrow) {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: var(--gray);
+}
+
+.team-cta .hero-buttons {
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .team-profile-grid,
+    .team-mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-photo {
+        min-height: 480px;
+    }
+
+    .team-photo img {
+        min-height: 480px;
+    }
+
+    .team-values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .team-hero,
+    .team-profile-section,
+    .team-mission,
+    .team-values,
+    .team-story,
+    .team-cta {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .team-photo {
+        min-height: 390px;
+    }
+
+    .team-photo img {
+        min-height: 390px;
+    }
+
+    .team-value-card {
+        padding: 26px 22px;
+    }
+}
+/* ==================================================
+   INVENTORY PAGE
+   ================================================== */
+
+.inventory-hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    padding: 110px 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.94) 0%,
+            rgba(0, 0, 0, 0.78) 50%,
+            rgba(0, 0, 0, 0.45) 100%
+        ),
+        url("../images/hero/muscle-car.jpg") center / cover no-repeat;
+}
+
+.inventory-hero-content {
+    width: 100%;
+}
+
+.inventory-hero-text {
+    max-width: 670px;
+    margin: 24px 0 32px;
+    color: var(--gray);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.inventory-intro {
+    padding: 95px 0;
+}
+
+.inventory-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 65px;
+}
+
+.inventory-intro h2,
+.inventory-heading h2,
+.inventory-information-heading h2,
+.vehicle-request h2,
+.inventory-cta h2 {
+    margin-bottom: 22px;
+    color: var(--gold);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+}
+
+.inventory-intro-copy p {
+    margin-bottom: 18px;
+    color: var(--gray);
+}
+
+.inventory-section {
+    padding: 95px 0;
+    background: var(--black-soft);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.inventory-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: end;
+    margin-bottom: 42px;
+}
+
+.inventory-count {
+    margin-bottom: 24px;
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+}
+
+.vehicle-card {
+    overflow: hidden;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.vehicle-image-placeholder {
+    position: relative;
+    min-height: 245px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212, 175, 55, 0.12),
+            transparent 45%
+        ),
+        linear-gradient(135deg, #1a1a1a, #080808);
+    border-bottom: 1px solid var(--border);
+}
+
+.vehicle-image-placeholder::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.17);
+    transform: rotate(-35deg);
+}
+
+.vehicle-image-placeholder::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.1);
+    transform: rotate(35deg);
+}
+
+.vehicle-status {
+    position: absolute;
+    z-index: 2;
+    top: 18px;
+    left: 18px;
+    padding: 8px 12px;
+    background: var(--gold);
+    color: #050505;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.vehicle-placeholder-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.vehicle-placeholder-icon {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--gold);
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.vehicle-placeholder-content p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.vehicle-card-content {
+    padding: 28px;
+}
+
+.vehicle-category {
+    margin-bottom: 8px;
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.vehicle-card-content h3 {
+    margin-bottom: 12px;
+    color: var(--white);
+    font-size: 1.45rem;
+}
+
+.vehicle-price {
+    margin-bottom: 22px;
+    color: var(--gold);
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.vehicle-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.vehicle-details span {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: var(--gray);
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+.vehicle-btn {
+    display: block;
+    width: 100%;
+    padding: 14px 18px;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.vehicle-btn:hover {
+    background: var(--gold);
+    color: #050505;
+}
+
+.inventory-information {
+    padding: 95px 0;
+}
+
+.inventory-information-heading {
+    max-width: 780px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.inventory-information-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.inventory-info-card {
+    padding: 34px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+}
+
+.inventory-info-card h3 {
+    margin-bottom: 12px;
+    color: var(--white);
+}
+
+.inventory-info-card p:not(.benefit-number) {
+    color: var(--gray);
+}
+
+.vehicle-request {
+    padding: 95px 0;
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(212, 175, 55, 0.1),
+            transparent 35%
+        ),
+        var(--black-soft);
+}
+
+.vehicle-request-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+    gap: 65px;
+    align-items: center;
+}
+
+.vehicle-request-grid > div:first-child > p:not(.eyebrow) {
+    max-width: 650px;
+    color: var(--gray);
+}
+
+.vehicle-request-card {
+    padding: 36px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+}
+
+.vehicle-request-card h3 {
+    margin-bottom: 12px;
+    color: var(--gold);
+    font-size: 1.6rem;
+}
+
+.vehicle-request-card > p {
+    margin-bottom: 15px;
+    color: var(--gray);
+}
+
+.vehicle-request-card ul {
+    margin: 0 0 28px;
+    padding-left: 20px;
+    color: var(--gray);
+}
+
+.vehicle-request-card li {
+    margin-bottom: 9px;
+}
+
+.vehicle-request-card li::marker {
+    color: var(--gold);
+}
+
+.vehicle-request-card .gold-btn {
+    width: 100%;
+    text-align: center;
+}
+
+.inventory-cta {
+    padding: 100px 0;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.88),
+            rgba(0, 0, 0, 0.88)
+        ),
+        url("../images/hero/muscle-car.jpg") center / cover no-repeat;
+    text-align: center;
+}
+
+.inventory-cta-content {
+    max-width: 800px;
+}
+
+.inventory-cta-content > p:not(.eyebrow) {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: var(--gray);
+}
+
+.inventory-cta .hero-buttons {
+    justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    .inventory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .inventory-information-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .inventory-intro-grid,
+    .vehicle-request-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inventory-heading {
+        display: block;
+    }
+
+    .inventory-count {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 650px) {
+    .inventory-hero {
+        min-height: 560px;
+        padding-top: 90px;
+        padding-bottom: 90px;
+        background-position: 62% center;
+    }
+
+    .inventory-intro,
+    .inventory-section,
+    .inventory-information,
+    .vehicle-request,
+    .inventory-cta {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .inventory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-image-placeholder {
+        min-height: 220px;
+    }
+
+    .vehicle-card-content,
+    .inventory-info-card,
+    .vehicle-request-card {
+        padding: 26px 22px;
+    }
+}
+/* ==========================
+   SEZA MOTORS LOGO
+========================== */
+
+.site-logo {
+    height: 75px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .site-logo {
+        height: 60px;
+    }
 }
